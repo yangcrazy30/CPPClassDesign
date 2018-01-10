@@ -8,11 +8,15 @@ namespace Restaurant
 {
     class Manager:Person
     {
-        public void InsertMenu()
+        public Manager():base()
         {
 
         }
-        public void DeletMenu()
+        public void InsertMenu(Food food)
+        {
+
+        }
+        public void DeletMenu(string id)
         {
 
         }
