@@ -17,7 +17,7 @@ namespace Restaurant
             }
             set
             {
-
+                foodname = value;
             }
         }
         private float price;
@@ -29,7 +29,7 @@ namespace Restaurant
             }
             set
             {
-
+                price = value;
             }
         }
         private int ordercount;
@@ -41,7 +41,16 @@ namespace Restaurant
             }
             set
             {
-
+                ordercount = value;
+            }
+        }
+        private string foodID;
+        public string FoodID
+        {
+            get { return foodID; }
+            set
+            {
+                foodID = value;
             }
         }
     }
