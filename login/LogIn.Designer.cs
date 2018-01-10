@@ -1,6 +1,6 @@
 ﻿namespace Restaurant
 {
-    partial class Form1
+    partial class LogIn
     {
         /// <summary>
         /// 必需的设计器变量。
