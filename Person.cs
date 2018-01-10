@@ -8,13 +8,17 @@ namespace Restaurant
 {
     class Person
     {
+        private string password;
         private string iD;
         public string ID
         {
-            get { }
-            set { }
+            get { return iD; }
+            set { iD = value; }
         }
-        private string password;
-        
+        public string Password
+        {
+            get { return password; }
+            set { password = value; }
+        }
     }
 }
