@@ -8,5 +8,18 @@ namespace Restaurant
 {
     class Customer:Person
     {
+        private Order order;
+        public Customer():base()
+        {
+            order = new Order();
+        }
+        public void GetOrder(string id)
+        {
+
+        }
+        public void SetPoint()
+        {
+
+        }
     }
 }
