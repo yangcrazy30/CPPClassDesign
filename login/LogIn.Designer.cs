@@ -44,6 +44,7 @@
             this.LoginButton.TabIndex = 0;
             this.LoginButton.Text = "Sign in";
             this.LoginButton.UseVisualStyleBackColor = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click_1);
             // 
             // SigninButton
             // 
@@ -53,6 +54,7 @@
             this.SigninButton.TabIndex = 1;
             this.SigninButton.Text = "Sign up";
             this.SigninButton.UseVisualStyleBackColor = true;
+            this.SigninButton.Click += new System.EventHandler(this.SigninButton_Click_1);
             // 
             // textBox1
             // 
@@ -60,6 +62,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 21);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -67,6 +70,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(145, 21);
             this.textBox2.TabIndex = 3;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label1
             // 
@@ -88,7 +92,7 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Password";
             // 
-            // Form1
+            // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -99,8 +103,9 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.SigninButton);
             this.Controls.Add(this.LoginButton);
-            this.Name = "Form1";
+            this.Name = "LogIn";
             this.Text = "登录";
+            this.Load += new System.EventHandler(this.LogIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

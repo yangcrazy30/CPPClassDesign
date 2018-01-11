@@ -49,6 +49,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(123, 21);
             this.textBox2.TabIndex = 1;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label1
             // 
@@ -72,12 +73,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(278, 26);
+            this.button1.Location = new System.Drawing.Point(278, 29);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -87,6 +89,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Signup
             // 
@@ -101,6 +104,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Signup";
             this.Text = "注册";
+            this.Load += new System.EventHandler(this.Signup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
