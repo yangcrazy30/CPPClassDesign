@@ -15,9 +15,13 @@ namespace Restaurant
 {
     public partial class LogIn : Form
     {
+        private DateBase db;
+        private string type;
         public LogIn()
         {
             InitializeComponent();
+            db = new DateBase();
+            type = "0";
         }
 
         private void LogIn_Load(object sender, EventArgs e)
@@ -36,35 +40,52 @@ namespace Restaurant
 
         private void LoginButton_Click_1(object sender, EventArgs e)
         {
-            string admin_id = this.textBox1.Text;
-            string admin_password = this.textBox1.Text;
-
-            string conn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=H:\\code\\C#\\Restaurant\\Restaurant\\bin\\Debug\\Restaruant.mdb";
-            SqlConnection connection = new SqlConnection(conn);
-
-            connection.Open();
-            string sql = string.Format("select count(*) from admin where admin id='{0}' and admin_psw='{1}'", admin_id, admin_password);
-
-            SqlCommand command = new SqlCommand(sql, connection);
-            int i = Convert.ToInt32(command.ExecuteScalar());//执行后返回记录行数
-
-            if (i > 0)//如果大于1，说明记录存在，登录成功
+            if(db.GetPassword(textBox1.Text,type)==textBox2.Text)
             {
-                MessageBox.Show("登陆成功");
+                if(radioButton1.Checked)
+                {
+                    MenuCreate man = new MenuCreate();
+                    man.ShowDialog();
+                    this.Close();
+                }
+                if (radioButton2.Checked)
+                {
+                    WaiterSystem waiter = new WaiterSystem();
+                    waiter.ShowDialog();
+                    this.Close();
+                }
+                if (radioButton3.Checked)
+                {
+                    Form4 customer = new Form4();
+                    customer.ShowDialog();
+                    this.Close();
+                }
             }
             else
             {
                 MessageBox.Show("用户名或密码错误");
             }
-            connection.Close();
-
         }
 
         private void SigninButton_Click_1(object sender, EventArgs e)
         {
-            var form = new Signup();
-            form.Show();
-            this.Close();
+            Signup signup = new Signup();
+            signup.ShowDialog();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            type = "1";
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            type = "2";
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            type = "3";
         }
     }
 }

@@ -15,9 +15,13 @@ namespace Restaurant
 {
     public partial class Signup : Form
     {
+        private DateBase db;
+        private string type;
         public Signup()
         {
             InitializeComponent();
+            db = new DateBase();
+            type = "0";
         }
 
         private void Signup_Load(object sender, EventArgs e)
@@ -27,38 +31,27 @@ namespace Restaurant
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            string Signup_id = this.textBox1.Text;
-            string Signup_password = this.textBox1.Text;
-
-            string conn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=H:\\code\\C#\\Restaurant\\Restaurant\\bin\\Debug\\Restaruant.mdb";
-            SqlConnection connection = new SqlConnection(conn);
-
-            connection.Open();
-            string sql = string.Format("select count(*) from admin where iD='"+Signup_id+"' and password='"+Signup_password+"'",conn);
-
-            SqlCommand command = new SqlCommand(sql, connection);
-            int i = Convert.ToInt32(command.ExecuteScalar());//执行后返回记录行数
-
-            if (i > 0)
+            if (db.GetPassword(textBox1.Text,type)==null)
             {
-                MessageBox.Show("用户名已被注册");
+                if (textBox1.Text != "" && textBox2.Text != "")
+                {
+                    if (type != "0")
+                    {
+                        db.SetLogin(textBox1.Text, textBox2.Text, type);
+                        MessageBox.Show("注册成功");
+                    }
+                    else
+                        MessageBox.Show("请选择用户类型");
+                }
+                else
+                {
+                    MessageBox.Show("密码或用户名不能为空");
+                }
             }
             else
             {
-                MessageBox.Show("注册成功");
-
-                string str = "server=.;database=Restaurant;integrated security=true";
-
-                SqlConnection conn1 = new SqlConnection(str);
-                conn1.Open();
-                SqlCommand cmd = new SqlCommand("insert into Restaurant (iD,password) values('Signup_id','Signup_password')", conn1);
-                cmd.ExecuteNonQuery();
-                conn1.Close();
-
-
+                MessageBox.Show("用户名已存在");
             }
-            connection.Close();
         }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -66,9 +59,22 @@ namespace Restaurant
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox1.Focus();
+            this.Close();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            type = "1";
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            type = "3";
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            type = "2";
         }
     }
 }
