@@ -28,6 +28,7 @@ namespace Restaurant
             foodmenu = new ListViewItem();
             pword = null;
             type = null;
+            point = 0;
         }        
         public void SetLogin(string ID,string Password,string type)
         {
@@ -205,6 +206,51 @@ namespace Restaurant
             }
             command.Dispose();
             return type;
+        }
+        public void UpdateCount(string ID,int Count)
+        {
+            string sqlstr = "Update Menu Set Count=";
+            sqlstr += "'" + Count + "'";
+            sqlstr += "WHERE ID=";
+            sqlstr += "'" + ID + "'";
+            command = new OleDbCommand(sqlstr, connect);
+            command.ExecuteNonQuery();
+            command.Dispose();
+        }
+        public void SortWithCount(ListView list)
+        {
+            string sqlstr = "Select* from Menu Order by Count";
+            command = new OleDbCommand();
+            command = connect.CreateCommand();
+            command.CommandText = sqlstr;
+            OleDbDataReader reader = command.ExecuteReader();
+            int i = 0;
+            while (reader.Read()&&i<=5)
+            {
+                foodmenu = new ListViewItem();
+                foodmenu.SubItems[0].Text = reader["ID"].ToString();
+                foodmenu.SubItems.Add(reader["Name"].ToString());
+                foodmenu.SubItems.Add(reader["Price"].ToString());
+                foodmenu.SubItems.Add(reader["Point"].ToString());
+                list.Items.Add(foodmenu);
+                i++;
+            }
+            command.Dispose();
+        }
+        public int GetCount(string ID)
+        {
+            command = new OleDbCommand();
+            string sqlstr = "select Count from Menu where ID=";
+            sqlstr += "'" + ID + "'";
+            command = connect.CreateCommand();
+            command.CommandText = sqlstr;
+            OleDbDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                count = reader["Count"].ToString();
+            }
+            command.Dispose();
+            return int.Parse(count);
         }
     }
 }
