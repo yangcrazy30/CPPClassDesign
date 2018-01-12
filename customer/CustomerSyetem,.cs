@@ -10,14 +10,17 @@ using System.Windows.Forms;
 
 namespace Restaurant
 {
-    public partial class Form4 : Form
+    public partial class CustomerSystem : Form
     {
         private int rate;
-        public Form4()
+        private Customer customer;
+        DateBase db;
+        public CustomerSystem()
         {
+            db = new DateBase();
             InitializeComponent();
+            db.SortWithCount(listView1);
         }
-
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton1.Checked == true)
@@ -50,12 +53,30 @@ namespace Restaurant
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            foreach (ListViewItem var in listView1.Items)
+            {
+                if (var.Selected)
+                {
+                    customer.SetPoint(var.SubItems[0].Text, int.Parse(var.SubItems[3].Text));
+                    
+                }
+            }
         }
 
         private void Form4_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            History getHistory = new History(this);
+            getHistory.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

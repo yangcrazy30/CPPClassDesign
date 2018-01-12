@@ -141,7 +141,7 @@ namespace Restaurant
             command.Dispose();
             return foodmenu;
         }
-        public void PointSet(int point,string ID)
+        public void PointSet(double point,string ID)
         {
             /*string sqlstr = "select Point from Menu where ID=";
             sqlstr += "'" + ID + "'";
