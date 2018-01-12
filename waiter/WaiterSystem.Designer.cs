@@ -36,18 +36,19 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.InSertButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.CreatButton = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Delete = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.InSertButton = new System.Windows.Forms.Button();
-            this.Delete = new System.Windows.Forms.Button();
-            this.CreatButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +87,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.InSertButton);
@@ -111,6 +113,16 @@
             this.textBox2.Size = new System.Drawing.Size(100, 21);
             this.textBox2.TabIndex = 1;
             // 
+            // InSertButton
+            // 
+            this.InSertButton.Location = new System.Drawing.Point(6, 375);
+            this.InSertButton.Name = "InSertButton";
+            this.InSertButton.Size = new System.Drawing.Size(75, 23);
+            this.InSertButton.TabIndex = 4;
+            this.InSertButton.Text = "添加";
+            this.InSertButton.UseVisualStyleBackColor = true;
+            this.InSertButton.Click += new System.EventHandler(this.InSertButton_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.CreatButton);
@@ -122,6 +134,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(382, 411);
             this.panel2.TabIndex = 3;
+            // 
+            // CreatButton
+            // 
+            this.CreatButton.Location = new System.Drawing.Point(84, 375);
+            this.CreatButton.Name = "CreatButton";
+            this.CreatButton.Size = new System.Drawing.Size(75, 23);
+            this.CreatButton.TabIndex = 6;
+            this.CreatButton.Text = "生成订单";
+            this.CreatButton.UseVisualStyleBackColor = true;
+            this.CreatButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // listView2
             // 
@@ -139,6 +161,7 @@
             this.listView2.TabIndex = 4;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
             // columnHeader5
             // 
@@ -161,6 +184,16 @@
             this.columnHeader10.Text = "时间";
             this.columnHeader10.Width = 81;
             // 
+            // Delete
+            // 
+            this.Delete.Location = new System.Drawing.Point(3, 375);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(75, 23);
+            this.Delete.TabIndex = 5;
+            this.Delete.Text = "删除";
+            this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -177,35 +210,15 @@
             this.textBox1.Size = new System.Drawing.Size(89, 21);
             this.textBox1.TabIndex = 2;
             // 
-            // InSertButton
+            // button1
             // 
-            this.InSertButton.Location = new System.Drawing.Point(6, 375);
-            this.InSertButton.Name = "InSertButton";
-            this.InSertButton.Size = new System.Drawing.Size(75, 23);
-            this.InSertButton.TabIndex = 4;
-            this.InSertButton.Text = "添加";
-            this.InSertButton.UseVisualStyleBackColor = true;
-            this.InSertButton.Click += new System.EventHandler(this.InSertButton_Click);
-            // 
-            // Delete
-            // 
-            this.Delete.Location = new System.Drawing.Point(3, 375);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(75, 23);
-            this.Delete.TabIndex = 5;
-            this.Delete.Text = "删除";
-            this.Delete.UseVisualStyleBackColor = true;
-            this.Delete.Click += new System.EventHandler(this.Delete_Click);
-            // 
-            // CreatButton
-            // 
-            this.CreatButton.Location = new System.Drawing.Point(84, 375);
-            this.CreatButton.Name = "CreatButton";
-            this.CreatButton.Size = new System.Drawing.Size(75, 23);
-            this.CreatButton.TabIndex = 6;
-            this.CreatButton.Text = "生成订单";
-            this.CreatButton.UseVisualStyleBackColor = true;
-            this.CreatButton.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Location = new System.Drawing.Point(106, 375);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Refresh";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // WaiterSystem
             // 
@@ -246,5 +259,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.Button button1;
     }
 }

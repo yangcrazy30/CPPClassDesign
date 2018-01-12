@@ -21,11 +21,17 @@ namespace Restaurant
             db = new DateBase();
             order = new ListViewItem();
             menu = new ListViewItem();
-            menu = db.GetFoodProperty();
+            //menu = db.GetFoodProperty();
         }
-        public ListViewItem Show()//wrong
+        /*public ListViewItem Show()//wrong
         {
-            return db.GetFoodProperty();
+           // return db.GetFoodProperty();
+        }*/
+        public ListViewItem GetOrder(string id)
+        {
+            order = new ListViewItem();
+            order = db.GetOrder(id);
+            return order;
         }
         public ListViewItem InsertOrder(ListView listview1, ListView listview2, int num,string UID)
         {
@@ -35,13 +41,41 @@ namespace Restaurant
                 order = new ListViewItem();
                 if (var.Selected)
                 {
-                    menu = var;
-                    db.InsertOrder(UID, menu.SubItems[1].Text, num, menu.SubItems[2].Text, time);
-                    order = db.GetOrder(UID);
+                    foreach(ListViewItem item in listview2.Items)
+                    {
+                        if(item.SubItems[0].Text!=null&&var.SubItems[1].Text==item.SubItems[1].Text)
+                        {
+                            int result;
+                            int.TryParse(item.SubItems[3].Text, out result);
+                            result += num;
+                            item.SubItems[3].Text = result.ToString();
+                            order.SubItems[0].Text = "#";
+                        }
+                        else
+                        {
+                            menu = var;
+                            db.InsertOrder(UID, menu.SubItems[1].Text, num, menu.SubItems[2].Text, time);
+                            order = db.GetOrder(UID);
+                        }
+                    }
                 }
-
+             
             }
-            return order;
+            if (order.SubItems[0].Text == ""&&order.SubItems[0].Text!="#")
+            {
+                MessageBox.Show("请选择下单菜品");
+                listview2.Items.Clear();
+                return order;
+            }
+            else
+            {
+                foreach(ListViewItem var in listview2.Items)
+                {
+                    if (var.SubItems[0].Text == "")
+                        var.Remove();
+                }
+                return order;
+            }
         }
         public void DeleteOrder(ListView listview)
         {

@@ -13,7 +13,7 @@ namespace Restaurant
     
     public partial class WaiterSystem : Form
     {
-        private Order CustomerOrder;
+        private Waiter waiter;
         private int num;
         public int Num
         {
@@ -22,9 +22,11 @@ namespace Restaurant
         public WaiterSystem()
         {
             InitializeComponent();
-            CustomerOrder = new Order();
-            ListViewItem list = CustomerOrder.Show();
-            listView1.Items.Add(list);
+            waiter = new Waiter();
+          //  ListViewItem list = waiter.MyOrder.Show();
+           // listView1.Items.Add(list);
+            ListViewItem list2 = waiter.MyOrder.GetOrder(textBox1.Text);
+            listView2.Items.Add(list2);
 
         }
 
@@ -44,15 +46,39 @@ namespace Restaurant
 
         private void InSertButton_Click(object sender, EventArgs e)
         {
+
             InsertFoodNum isys = new InsertFoodNum(this);
             isys.ShowDialog();
-           listView2.Items.Add( CustomerOrder.InsertOrder(listView1, listView2, num, textBox2.Text));
+           listView2.Items.Add( waiter.MyOrder.InsertOrder(listView1, listView2, num, textBox2.Text));
+            foreach(ListViewItem var in listView2.Items)
+            {
+                if(var.SubItems[0].Text=="#")
+                {
+                    var.Remove();
+                }
+            }
         }
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            CustomerOrder = new Order();
-            CustomerOrder.DeleteOrder(listView2);
+            
+            waiter.MyOrder.DeleteOrder(listView2);
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ListViewItem list2 = waiter.MyOrder.GetOrder(textBox2.Text);
+            listView2.Items.Add(list2);
+            foreach (ListViewItem var in listView2.Items)
+            {
+                if (var.SubItems[0].Text == "")
+                    var.Remove();
+            }
         }
     }
 }
