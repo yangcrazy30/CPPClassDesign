@@ -1,6 +1,6 @@
 ﻿namespace Restaurant
 {
-    partial class Form4
+    partial class CustomerSystem
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -41,11 +45,34 @@
             // 
             // listView1
             // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listView1.FullRowSelect = true;
             this.listView1.Location = new System.Drawing.Point(27, 30);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(437, 137);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Name";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Price";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Rate";
             // 
             // radioButton1
             // 
@@ -57,6 +84,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "☆";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -68,6 +96,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "☆☆";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton3
             // 
@@ -79,6 +108,7 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "☆☆☆";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // radioButton4
             // 
@@ -90,6 +120,7 @@
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "☆☆☆☆";
             this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
             // radioButton5
             // 
@@ -101,6 +132,7 @@
             this.radioButton5.TabStop = true;
             this.radioButton5.Text = "☆☆☆☆☆";
             this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
             // button1
             // 
@@ -110,6 +142,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "确认";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -119,6 +152,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "退出登录";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -128,8 +162,9 @@
             this.button3.TabIndex = 8;
             this.button3.Text = "历史订单";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Form4
+            // CustomerSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -143,8 +178,9 @@
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.listView1);
-            this.Name = "Form4";
+            this.Name = "CustomerSystem";
             this.Text = "客户界面";
+            this.Load += new System.EventHandler(this.Form4_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +197,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

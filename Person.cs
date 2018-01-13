@@ -20,5 +20,19 @@ namespace Restaurant
             get { return password; }
             set { password = value; }
         }
+        public Person()
+        {
+            ID = null;
+            Password = null;
+        }
+        public Person(string id,string Pasword)
+        {
+            ID = id;
+            Password = Pasword;
+        }
+        public Person(string Pasword)
+        {
+            Password = Pasword;
+        }
     }
 }
