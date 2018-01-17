@@ -28,11 +28,11 @@ namespace Restaurant
         public string SetPoint(string id,int rate )
 
          {
-            double Rate = double.Parse(db.GetPoint(id));
-            int count = db.GetCount(id);
-            double currentRate=(Rate * (db.GetCount(id)-1)+rate)/db.GetCount(id);
-            db.PointSet(currentRate, id);
-            db.UpdateCount(id, count);
+            double Rate = double.Parse(db.GetPoint(int.Parse(id)));
+            int count = db.GetCount(int.Parse(id));
+            double currentRate=(Rate * (db.GetCount(int.Parse(id))-1)+rate)/db.GetCount(int.Parse(id));
+            db.PointSet(currentRate, int.Parse(id));
+            db.UpdateCount(int.Parse(id), count);
             return currentRate.ToString();
         }
     }

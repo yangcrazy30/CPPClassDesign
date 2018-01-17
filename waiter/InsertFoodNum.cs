@@ -13,20 +13,25 @@ namespace Restaurant
     public partial class InsertFoodNum : Form
     {
         private WaiterSystem waitersys;
+        private DateBase db;
         public InsertFoodNum()
         {
             InitializeComponent();
+            textBox1.Text = "1";
         }
         public InsertFoodNum(WaiterSystem wsys)
         {
             InitializeComponent();
             waitersys = wsys;
+            textBox1.Text = "1";
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            db = new DateBase();
             int result;
             int.TryParse(textBox1.Text,out result);
             waitersys.Num = result;
+            db.InsertPM(waitersys.log.textBox1.Text, result.ToString());
             this.Close();
         }
 

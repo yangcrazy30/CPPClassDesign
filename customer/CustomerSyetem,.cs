@@ -78,6 +78,7 @@ namespace Restaurant
                 if (var.Selected)
                 {
                     customer.SetPoint(var.SubItems[0].Text, rate);
+                    MessageBox.Show("评分成功请评下一道菜");
                 }
             }
         }

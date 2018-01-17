@@ -15,20 +15,15 @@ namespace Restaurant
         {
             db = new DateBase();
         }
-        private ListViewItem menu; 
         public void GetMenu(ListView list)
         {
             db.GetFoodProperty(list);
             
         }
-        public ListViewItem Insertfood(string id, string name, string price)
+        public void Insertfood(string name, string price,ListView list)
         {
-            menu = new ListViewItem();
-            menu.SubItems[0].Text = id;
-            menu.SubItems.Add(name);
-            menu.SubItems.Add(price);
-            db.InsertMenu(id, name, price);
-            return menu;
+            db.InsertMenu(name, price);
+            db.GetFoodProperty(list);
         }
         public void Deletefood(ListView L)
         {
@@ -38,7 +33,7 @@ namespace Restaurant
                 if (var.Selected)
                 {
                     temp = var;
-                    db.DeleteMenu(temp.SubItems[0].Text);
+                    db.DeleteMenu(int.Parse(temp.SubItems[0].Text));
                     var.Remove();
                    
                 }

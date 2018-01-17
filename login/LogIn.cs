@@ -18,6 +18,7 @@ namespace Restaurant
         private DateBase db;
         private string type;
         private string Uid;
+       
         public LogIn()
         {
             InitializeComponent();
@@ -75,7 +76,7 @@ namespace Restaurant
 
         private void SigninButton_Click_1(object sender, EventArgs e)
         {
-            Signup signup = new Signup();
+            Signup signup = new Signup(this);
             this.Hide();
             signup.Show();
         }

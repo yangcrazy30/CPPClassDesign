@@ -14,7 +14,7 @@ namespace Restaurant
     public partial class WaiterSystem : Form
     {
         private Waiter waiter;
-        private LogIn log;
+        public LogIn log;
         private int num;
         public int Num
         {
@@ -53,7 +53,15 @@ namespace Restaurant
             }
             textBox1.Text = Sum.ToString();
         }
-
+        private int GetCount()
+        {
+            int count = 0;
+            foreach(ListViewItem var in listView2.Items)
+            {
+                count += int.Parse(var.SubItems[3].Text);
+            }
+            return count;
+        }
         private void InSertButton_Click(object sender, EventArgs e)
         {
             int count=0;
@@ -73,6 +81,16 @@ namespace Restaurant
             {
                 MessageBox.Show("请选择菜品");
             }
+            float Count;
+            float Fprice;
+            float Sum = 0;
+            foreach (ListViewItem var in listView2.Items)
+            {
+                float.TryParse(var.SubItems[2].Text, out Fprice);
+                float.TryParse(var.SubItems[3].Text, out Count);
+                Sum += Count * Fprice;
+            }
+            textBox1.Text = Sum.ToString();
         }
 
         private void Delete_Click(object sender, EventArgs e)

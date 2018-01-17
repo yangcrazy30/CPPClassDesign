@@ -73,5 +73,11 @@ namespace Restaurant
             log.textBox2.Text = "";
             log.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Performance pm = new Performance();
+            pm.Show();
+        }
     }
 }

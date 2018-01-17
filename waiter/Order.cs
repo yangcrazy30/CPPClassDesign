@@ -57,8 +57,8 @@ namespace Restaurant
                                 temp += num;
                                 item.SubItems[3].Text = temp.ToString();
                                
-                                int fnum = db.GetCount(var.SubItems[0].Text.ToString());
-                                db.UpdateCount(var.SubItems[0].Text,(fnum+num));
+                                int fnum = db.GetCount(int.Parse(var.SubItems[0].Text.ToString()));
+                                db.UpdateCount(int.Parse(var.SubItems[0].Text),(fnum+num));
                                 count = 1;
                             }
                         }
@@ -74,7 +74,7 @@ namespace Restaurant
                     {
                         
                         db.InsertOrder(UID, var.SubItems[1].Text, num, var.SubItems[2].Text, time);
-                        db.UpdateCount(var.SubItems[0].Text, db.GetCount(var.SubItems[0].Text) + num);
+                        db.UpdateCount(int.Parse(var.SubItems[0].Text), db.GetCount(int.Parse(var.SubItems[0].Text)) + num);
                         listview2.Items.Clear();
                         db.GetOrder(UID,listview2);
                     }

@@ -18,6 +18,7 @@ namespace Restaurant
         private DateBase db;
         private string type;
         private LogIn log;
+        private int flag=0;
         public Signup()
         {
             InitializeComponent();
@@ -38,26 +39,44 @@ namespace Restaurant
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (db.GetPassword(textBox1.Text,type)==null)
+          
+            if(radioButton1.Checked)
             {
-                if (textBox1.Text != "" && textBox2.Text != "")
+                ps Ps = new ps();
+                if(Ps.GetFlag()==0)
                 {
-                    if (type != "0")
-                    {
-                        db.SetLogin(textBox1.Text, textBox2.Text, type);
-                        MessageBox.Show("注册成功");
-                    }
-                    else
-                        MessageBox.Show("请选择用户类型");
+                     Ps.Show();
                 }
                 else
                 {
-                    MessageBox.Show("密码或用户名不能为空");
+                    MessageBox.Show("已被锁定无法注册");
+                    this.Close();
                 }
+               
             }
-            else
+            if (radioButton2.Checked || radioButton3.Checked)
             {
-                MessageBox.Show("用户名已存在");
+                if (db.GetPassword(textBox1.Text, type) == null)
+                {
+                    if (textBox1.Text != "" && textBox2.Text != "")
+                    {
+                        if (type != "0")
+                        {
+                            db.SetLogin(textBox1.Text, textBox2.Text, type);
+                            MessageBox.Show("注册成功");
+                        }
+                        else
+                            MessageBox.Show("请选择用户类型");
+                    }
+                    else
+                    {
+                        MessageBox.Show("密码或用户名不能为空");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("用户名已存在");
+                }
             }
         }
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -67,6 +86,7 @@ namespace Restaurant
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+            log.Show();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

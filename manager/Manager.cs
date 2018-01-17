@@ -13,9 +13,10 @@ namespace Restaurant
         {
             menu = new Menu();
         }
-        public ListViewItem InsertMenu(string id, string name,string price)
+        public void InsertMenu(string name,string price,ListView list)
         {
-           return  menu.Insertfood(id, name, price);
+            //menu.Insertfood(name, price);
+             menu.Insertfood(name, price,list);
         }
         public void DeletMenu(ListView L)
         {

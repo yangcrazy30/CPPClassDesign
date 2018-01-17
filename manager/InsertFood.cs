@@ -42,8 +42,23 @@ namespace Restaurant
         //确认添加入数据库并显示
         private void button1_Click(object sender, EventArgs e)
         {
+            menucreate.listView1.Items.Clear();
             ma = new Manager();
-          menucreate.listView1.Items.Add( ma.InsertMenu(textBox1.Text, textBox2.Text, textBox3.Text));
+            int temp = 0;
+            foreach(ListViewItem var in menucreate.listView1.Items)
+            {
+                if (var.SubItems[1].Text == textBox2.Text)
+                    temp = 1;
+            }
+            if (temp == 0)
+            {
+                ma.InsertMenu(textBox2.Text, textBox3.Text,menucreate.listView1);
+                MessageBox.Show("添加成功");
+            }
+            else
+                MessageBox.Show("已存在相同菜品");
+            this.Close();
+         
         }
 
         private void button2_Click(object sender, EventArgs e)

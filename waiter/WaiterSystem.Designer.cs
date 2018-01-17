@@ -38,7 +38,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.InSertButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.CreatButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,7 +49,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -126,7 +125,6 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.CreatButton);
             this.panel2.Controls.Add(this.listView2);
             this.panel2.Controls.Add(this.Delete);
             this.panel2.Controls.Add(this.label1);
@@ -136,15 +134,15 @@
             this.panel2.Size = new System.Drawing.Size(413, 411);
             this.panel2.TabIndex = 3;
             // 
-            // CreatButton
+            // label3
             // 
-            this.CreatButton.Location = new System.Drawing.Point(84, 375);
-            this.CreatButton.Name = "CreatButton";
-            this.CreatButton.Size = new System.Drawing.Size(75, 23);
-            this.CreatButton.TabIndex = 6;
-            this.CreatButton.Text = "生成订单";
-            this.CreatButton.UseVisualStyleBackColor = true;
-            this.CreatButton.Click += new System.EventHandler(this.button1_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(15, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 16);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "用户订单：";
             // 
             // listView2
             // 
@@ -187,7 +185,7 @@
             // 
             // Delete
             // 
-            this.Delete.Location = new System.Drawing.Point(3, 375);
+            this.Delete.Location = new System.Drawing.Point(18, 375);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(75, 23);
             this.Delete.TabIndex = 5;
@@ -221,16 +219,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(15, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 16);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "用户订单：";
-            // 
             // WaiterSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -256,7 +244,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button InSertButton;
         private System.Windows.Forms.Button Delete;
-        private System.Windows.Forms.Button CreatButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
